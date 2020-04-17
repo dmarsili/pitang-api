@@ -17,7 +17,7 @@ API RESTful para Sistema de Usuários de Carros
 
 Utilização de melhores práticas e frameworks disponíveis para implementação de api.
 
-## Instalação
+## Install
 
 **Build Api**
 
@@ -25,11 +25,11 @@ mvn clean install
 
 mvn package spring-boot:repackage
 
-**Execução Api**
+**Execution Api**
 
 java -jar pitang-api-0.0.1-SNAPSHOT.jar
 
-**Teste Api**
+**Test Api**
 
 http://{server}:{port}/api
 
@@ -41,18 +41,18 @@ npm install
 
 ng build --prod
 
-**Execução Front**
+**Execution Front**
 
 ng serve
 
-**Teste Front**
+**Test Front**
 
 http://{server}:{port}/#/login
 
 Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:8080/#/login
 
 
-## User Histories
+## User stories
 
 **Login**
 Acessar api de usuários e carros utilizando login e senha.
@@ -71,7 +71,7 @@ Manter o cadastro de carros apresentando os dados do veículo, permitindo inclui
 Poderá ser enviada foto do veículo cadastrado.
 
 
-## Requisitos
+## Requirements
 JWT como token
 
 Servidor deve estar embutido na aplicação (Tomcat, Undertow ou Jetty); 
