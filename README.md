@@ -17,6 +17,13 @@ API RESTful para Sistema de Usuários de Carros
 
 Utilização de melhores práticas e frameworks disponíveis para implementação de api.
 
+## Repo
+
+**Api**: https://github.com/dmarsili/pitang-api
+
+**Web**: https://github.com/dmarsili/pitang-api/pitang-web
+
+
 ## Install
 
 **Build Api**
