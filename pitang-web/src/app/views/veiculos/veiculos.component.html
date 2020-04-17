@@ -1,0 +1,16 @@
+<app-alerta [service]="alertaService"></app-alerta>
+<div class="row pb-0 animated fadeIn">
+    <div class="col pb-0">
+        <div class="card mb-0">
+            <div class="card-header">
+                <div class="pull-left mt-1">
+                    <strong>Veículos</strong>
+                </div>
+                <a routerLink="/veiculos/formulario" class="btn btn-success mt-1 pull-right" role="button">
+                    <i class="fa fa-plus"></i>&nbsp;Adicionar Veículo
+                </a>
+            </div>
+            <veiculos-lista [alertaService]="alertaService"></veiculos-lista>
+        </div>
+    </div>
+</div>

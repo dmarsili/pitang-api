@@ -1,0 +1,14 @@
+<div *ngIf="getAlertas()">
+    <div class="row" *ngFor="let alert of getAlertas()">
+        <div class="col">
+            <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" [dismissible]="true">
+                <i class="{{alert.iconClass}}"></i> {{alert.msg}}
+                <ul>
+                    <li *ngFor="let d of getAlertaDetalhes()">
+                        {{d.erro}}
+                    </li>
+                </ul>
+            </alert>
+        </div>
+    </div>
+</div>

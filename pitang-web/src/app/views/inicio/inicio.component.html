@@ -1,0 +1,65 @@
+<div class="animated fadeIn">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-accent-primary">
+				<div class="card-header">
+					<div class="pull-left mt-1">
+						<i class="fa fa-star"></i>
+						BEM VINDO!
+					</div>
+					<div class="pull-right" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="collapseWelcome">
+						<i class="icon-arrow-up"></i>
+					</div>
+				</div>
+				
+				<div class="card-body card-welcome "  id="collapseWelcome" [collapse]="isCollapsed" >
+					<div class="row row-eq-height">
+						<p>&nbsp;API RESTful para Sistema de Usuários de Carros</p>
+					</div>
+				</div>
+				<div class="card-body card-welcome "  id="collapseWelcome" [collapse]="isCollapsed" >
+					<div class="row row-eq-height">
+						<div class="col-sm-12">
+						<b>Candidato:</b> Daniel Marsili<br>
+						<b>Cargo:</b> Analista Desenvolvedor Sr<br>
+						</div>
+					</div>
+					<div class="row row-eq-height">
+						<div class="col-sm-6">
+						<br>
+						<b>Requisitos:</b><br>
+						JWT como token; <i class="fa fa-check"></i><br>
+						Servidor deve estar embutido na aplicação (Tomcat, Undertow ou Jetty); <i class="fa fa-check"></i><br>
+						Processo de build via Maven; <i class="fa fa-check"></i><br>
+						Banco de dados em memória, como H2; <i class="fa fa-check"></i><br>
+						Framework Spring; <i class="fa fa-check"></i><br>
+						Utilizar no mínimo Java 8; <i class="fa fa-check"></i><br>
+						Persistência com Spring Data; <i class="fa fa-check"></i><br>
+						Disponibilizar a API rodando em algum host AWS; <i class="fa fa-check"></i><br>
+						Testes unitários; <i class="fa fa-check"></i><br>
+
+						Criar um repositório público em alguma ferramenta de git.  <i class="fa fa-check"></i><br>
+						O desenvolvimento deve simular uma mini-sprint (Scrum), dividindo o desafio em estórias de usuário (story users). <i class="fa fa-check"></i><br>
+						O README.md do projeto deverá ter uma seção ESTÓRIAS DE USUÁRIO com a lista numerada de estórias de
+						usuário que foram concebidas para a implementação do desafio. A primeira linha de cada commit do repositório
+						deve utilizar a descrição da estória de usuário associada. <i class="fa fa-check"></i><br>
+						O README.md do projeto deverá ter uma seção SOLUÇÃO com as justificativas e defesa técnica da solução que
+						está sendo entregue. <i class="fa fa-check"></i><br>
+						O README.md do projeto deve ser claro e mostrar tudo que precisa ser feito para executar o build do projeto,
+						deploy, testes, etc. <i class="fa fa-check"></i><br>
+						
+						<br>
+						Documentação (Javadoc); <i class="fa fa-check"></i><br>
+						Design Pattern: MVC; <i class="fa fa-check"></i><br>
+						Integração com SonarQube; <i class="fa fa-check"></i><br>
+						Swagger <a href="http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:8080/api/swagger-ui.html" target="_blank">(acesse)</a> <i class="fa fa-check"></i><br>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+
+</div>

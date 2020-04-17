@@ -1,0 +1,117 @@
+<app-alerta [service]="alertaService"></app-alerta>
+<div class="card animated fadeIn">
+    <div class="card-header">
+        <div class="pull-left mt-3">
+            <strong>Cadastro de Usuário</strong>
+        </div>
+        <a [routerLink]="['/login']" class="btn btn-outline-secondary mt-1 pull-right" role="button">
+            <i class="fa fa-angle-left"></i>&nbsp;Login
+        </a>     
+    </div>
+
+    <div class="card-body mb-0">
+        <div class="form-row">
+            <div class="col-md-6">
+                <label>
+                    <strong>Nome</strong>
+                </label>
+                <input required uppercase type="text" id="firstName" name="firstName" maxlength="20"
+                 [(ngModel)] = "user.firstName" class="form-control text-uppercase">
+            </div>
+            <div class="col-sm-6">
+                <label>
+                    <strong>Sobrenome</strong>
+                </label>
+                <input required uppercase type="text" id="lastName" maxlength="40" name="lastName" 
+                class="form-control text-uppercase" [(ngModel)]="user.lastName">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-4">
+                <label>
+                    <strong>E-mail</strong>
+                </label>
+                <input required type="text" id="email" maxlength="40" name="email" 
+                class="form-control" [(ngModel)]="user.email">
+            </div>
+            <div class="col-sm-4">
+                <label>
+                    <strong>Data de nasc.</strong><small>&nbsp;(dd/mm/aaaa)</small>
+                </label>
+                <input required minlength="10" maxlength="10" type="text" class="form-control" bsDatepicker [(bsValue)]="user.birthday" bsDatepicker
+                                    #birthday="bsDatepicker" id="birthday" name="birthday" [(ngModel)]="user.birthday"
+                                    value="{{ user.birthday | date: 'dd/MM/yyyy' }}"
+                                    [bsConfig]="bsConfig" #dtNasc="ngModel"> 
+            </div>
+            <div class="col-sm-4">
+                <label>
+                    <strong>Telefone</strong>
+                </label>
+                <input required uppercase type="text" id="phone" maxlength="40" name="phone" 
+                mask="(99) 90000-0000"
+                class="form-control text-uppercase" [(ngModel)]="user.phone">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label>
+                    <strong>Login</strong>
+                </label>
+                <input required type="text" id="login" maxlength="40" name="login" 
+                class="form-control" [(ngModel)]="user.login">
+            </div>
+            <div class="col-sm-6">
+                <label>
+                    <strong>Senha</strong>
+                </label>
+                <input required type="password" id="password" maxlength="40" name="password" 
+                class="form-control" [(ngModel)]="user.password">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 margin-top-10">
+                <div class="card-header header-midle">
+                    <strong>Carro principal</strong>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label>
+                    <strong>Placa do Veículo</strong><small>&nbsp;(AAA-1111 ou AAA1A11)</small>
+                </label>
+                <input required uppercase type="text" id="licensePlate" name="licensePlate" maxlength="10" [(ngModel)] = "car.licensePlate"                    class="form-control text-uppercase">
+            </div>
+            <div class="col-sm-6">
+                <label>
+                    <strong>Modelo</strong>
+                </label>
+                <input required uppercase type="text" id="model" maxlength="40" name="model" class="form-control text-uppercase" [(ngModel)]="car.model">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label>
+                    <strong>Cor</strong>
+                </label>
+                <input required uppercase type="text" id="color" maxlength="20" name="color" class="form-control text-uppercase" [(ngModel)]="car.color">
+            </div>
+            <div class="col-sm-6">
+                <label>
+                    <strong>Ano</strong>
+                </label>
+                <input mask="9999" required uppercase type="text" id="year" maxlength="4" name="year" class="form-control text-uppercase" [(ngModel)]="car.year">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-12 margin-bottom-10">
+                <button type="button" class="btn btn-success btn-lg btn-block" (click) = "save()"><i class="fa fa-save"></i>&nbsp;Salvar</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-12 margin-bottom-10">
+                <button type="button" class="btn btn-secondary btn-lg btn-block" (click) = "login()"><i class="fa fa-sign-in"></i>&nbsp;Ir para Login</button>
+            </div>
+        </div>
+    </div>
+</div>

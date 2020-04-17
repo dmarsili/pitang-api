@@ -1,0 +1,16 @@
+<app-alerta [service]="alertaService"></app-alerta>
+<div class="row pb-0 animated fadeIn">
+    <div class="col pb-0">
+        <div class="card mb-0">
+            <div class="card-header">
+                <div class="pull-left mt-1">
+                    <strong>Usuários</strong>
+                </div>
+                <a routerLink="/usuarios/formulario" class="btn btn-success mt-1 pull-right" role="button">
+                    <i class="fa fa-plus"></i>&nbsp;Adicionar Usuário
+                </a>
+            </div>
+            <usuarios-lista [alertaService]="alertaService"></usuarios-lista>
+        </div>
+    </div>
+</div>

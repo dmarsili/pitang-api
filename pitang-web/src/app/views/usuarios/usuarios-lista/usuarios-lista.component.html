@@ -1,0 +1,28 @@
+<div class="card-body mb-0">
+    <div class="form-row margin-top-10">
+        <div class="col-sm-6">
+            <strong>Lista de Usuários</strong>
+        </div>
+    </div>
+    <table class="table table-sm table-hover mb-0">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th class="d-md-down-none">E-mail</th>
+                <th class="d-md-down-none">Login</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.firstName}}&nbsp;{{user.lastName}}</td>
+                <td class="d-md-down-none">{{user.email}}</td>
+                <td class="d-md-down-none">{{user.login}}</td>
+                <td class="text-right">
+                    <button (click)="edit(user)" class="btn btn-primary btn-sm" role="button">
+                        <i class="fa fa-user-o"></i>&nbsp;Detalhar / Editar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,51 @@
+<app-alerta [service]="alertaService"></app-alerta>
+<div class="card animated fadeIn">
+    <div class="card-header">
+        <div class="pull-left mt-1">
+            <strong>Adicionar Veículo</strong>
+        </div>
+        <a [routerLink]="['/veiculos']" class="btn btn-outline-secondary mt-1 pull-right" role="button">
+            <i class="fa fa-angle-left"></i>&nbsp;Voltar para Veículos
+        </a>     
+    </div>
+    <div class="card-body mb-0">
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label>
+                    <strong>Placa do Veículo</strong><small>&nbsp;(AAA-1111 ou AAA1A11)</small>
+                </label>
+                <input required uppercase type="text" id="licensePlate" name="licensePlate" maxlength="10" [(ngModel)] = "car.licensePlate"                    class="form-control text-uppercase">
+            </div>
+            <div class="col-sm-6">
+                <label>
+                    <strong>Modelo</strong>
+                </label>
+                <input required uppercase type="text" id="model" maxlength="40" name="model" class="form-control text-uppercase" [(ngModel)]="car.model">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label>
+                    <strong>Cor</strong>
+                </label>
+                <input required uppercase type="text" id="color" maxlength="20" name="color" class="form-control text-uppercase" [(ngModel)]="car.color">
+            </div>
+            <div class="col-sm-6">
+                <label>
+                    <strong>Ano</strong>
+                </label>
+                <input mask="9999" required uppercase type="text" id="year" maxlength="4" name="year" class="form-control text-uppercase" [(ngModel)]="car.year">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-12 margin-bottom-10">
+                <button type="button" class="btn btn-success btn-lg btn-block" (click) = "save()"><i class="fa fa-save"></i>&nbsp;Salvar</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-12 margin-bottom-10">
+                <button type="button" class="btn btn-danger btn-lg btn-block" (click) = "delete()"><i class="fa fa-trash-o"></i>&nbsp;Apagar</button>
+            </div>
+        </div>
+    </div>
+</div>

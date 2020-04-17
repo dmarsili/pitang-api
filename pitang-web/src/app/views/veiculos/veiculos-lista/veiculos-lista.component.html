@@ -1,0 +1,30 @@
+<div class="card-body mb-0">
+    <div class="form-row margin-top-10">
+        <div class="col-sm-6">
+            <strong>Lista de Veículos</strong>
+        </div>
+    </div>
+    <table class="table table-sm table-hover mb-0">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Placa</th>
+                <th>Cor</th>
+                <th>Ano</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars">
+                <td>{{car.model}}</td>
+                <td>{{car.licensePlate}}</td>
+                <td>{{car.color}}</td>
+                <td>{{car.year}}</td>
+                <td class="text-right">
+                    <button (click)="edit(car)" class="btn btn-primary btn-sm" role="button">
+                        <i class="fa fa-user-o"></i>&nbsp;Detalhar / Editar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
