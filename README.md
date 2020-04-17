@@ -21,7 +21,7 @@ Utilização de melhores práticas e frameworks disponíveis para implementaçã
 
 **Api**: https://github.com/dmarsili/pitang-api
 
-**Web**: https://github.com/dmarsili/pitang-api/pitang-web
+**Web**: https://github.com/dmarsili/pitang-api/tree/master/pitang-web
 
 
 ## Install
