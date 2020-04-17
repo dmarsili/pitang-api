@@ -52,7 +52,7 @@ http://{server}:{port}/#/login
 Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:8080/#/login
 
 
-## User Histories
+## User stories
 
 **Login**
 Acessar api de usuários e carros utilizando login e senha.
