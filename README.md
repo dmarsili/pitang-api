@@ -42,6 +42,10 @@ http://{server}:{port}/api
 
 Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:8080/api
 
+**Postman**
+
+[Rest Requests](http://iuri0122.hospedagemdesites.ws/~loyalti/RestPostman.rar)
+
 **Build Front (Angular)**
 
 npm install
@@ -59,7 +63,7 @@ http://{server}:{port}/#/login
 Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:4200/#/login
 
 
-## User stories
+## Story Users
 
 **Login**
 Acessar api de usuários e carros utilizando login e senha.
@@ -81,7 +85,7 @@ Poderá ser enviada foto do veículo cadastrado.
 ## Requirements
 JWT como token
 
-Servidor deve estar embutido na aplicação (Tomcat, Undertow ou Jetty); 
+Servidor deve estar embutido na aplicação (Tomcat); 
 
 Processo de build via Maven; 
 
@@ -93,11 +97,11 @@ Utilizar no mínimo Java 8;
 
 Persistência com Spring Data; 
 
-Disponibilizar a API rodando em algum host AWS
+Disponibilizar a API rodando em AWS
 
 Testes unitários; 
 
-Criar um repositório público em alguma ferramenta de git. 
+Criar um repositório público: github. 
 
 O desenvolvimento deve simular uma mini-sprint (Scrum), dividindo o desafio em estórias de usuário (story users). 
 
