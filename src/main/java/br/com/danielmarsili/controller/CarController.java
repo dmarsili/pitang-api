@@ -27,7 +27,6 @@ import io.swagger.annotations.Api;
  */
 @RestController
 @RequestMapping("cars")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Api(value = "Car")
 public class CarController {
 
@@ -51,7 +50,7 @@ public class CarController {
 	 * @return the all cars logged user
 	 */
 	@GetMapping
-	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 	public ResponseEntity<List<CarDTO>> getAllCarsLoggedUser(Authentication authentication) {
 		return ResponseEntity.ok(ApplicationUtils.mapBeans(carService.getAllCarsByUser(authentication.getName()), CarDTO.class));
 	}
@@ -78,7 +77,7 @@ public class CarController {
 	 * @return the car by logged user
 	 */
 	@GetMapping("/{id}")
-	@CrossOrigin(origins = "*", allowedHeaders = "*")
+	@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 	public ResponseEntity<CarDTO> getCarByLoggedUser(Authentication authentication, @PathVariable("id") Integer id) {
 		Car car = carService.findByCarIdAndUser(id, authentication.getName());
 		return ResponseEntity.ok(ApplicationUtils.mapBean(car, CarDTO.class));
