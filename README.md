@@ -17,6 +17,13 @@ API RESTful para Sistema de Usuários de Carros
 
 Utilização de melhores práticas e frameworks disponíveis para implementação de api.
 
+## Repo
+
+**Api**: https://github.com/dmarsili/pitang-api
+
+**Web**: https://github.com/dmarsili/pitang-api/tree/master/pitang-web
+
+
 ## Install
 
 **Build Api**
@@ -35,6 +42,10 @@ http://{server}:{port}/api
 
 Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:8080/api
 
+**Postman**
+
+[Rest Requests](http://iuri0122.hospedagemdesites.ws/~loyalti/RestPostman.rar)
+
 **Build Front (Angular)**
 
 npm install
@@ -49,10 +60,10 @@ ng serve
 
 http://{server}:{port}/#/login
 
-Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:8080/#/login
+Ex: http://ec2-3-16-43-135.us-east-2.compute.amazonaws.com:4200/#/login
 
 
-## User stories
+## Story Users
 
 **Login**
 Acessar api de usuários e carros utilizando login e senha.
@@ -74,7 +85,7 @@ Poderá ser enviada foto do veículo cadastrado.
 ## Requirements
 JWT como token
 
-Servidor deve estar embutido na aplicação (Tomcat, Undertow ou Jetty); 
+Servidor deve estar embutido na aplicação (Tomcat); 
 
 Processo de build via Maven; 
 
@@ -86,11 +97,11 @@ Utilizar no mínimo Java 8;
 
 Persistência com Spring Data; 
 
-Disponibilizar a API rodando em algum host AWS
+Disponibilizar a API rodando em AWS
 
 Testes unitários; 
 
-Criar um repositório público em alguma ferramenta de git. 
+Criar um repositório público: github. 
 
 O desenvolvimento deve simular uma mini-sprint (Scrum), dividindo o desafio em estórias de usuário (story users). 
 
