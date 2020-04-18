@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CarDTO } from 'app/objetos';
 import { Alerta } from 'app/components/app-shared/alerta';
-import { VeiculoService } from 'app/services/veiculo.service';
+import { CarService } from 'app/services/car.service';
 import { LoadingService } from 'app/services/loading.service';
 import { Globals } from 'app/globals';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
@@ -18,7 +18,7 @@ export class VeiculoFormComponent implements OnInit {
   public alertaService: Alerta = new Alerta();
 
   constructor(private route: ActivatedRoute, private router: Router, 
-    private veiculoService: VeiculoService) { }
+    private carService: CarService) { }
 
   bsConfig: BsDatepickerConfig =
   Object.assign(new BsDatepickerConfig(), {
@@ -47,7 +47,7 @@ export class VeiculoFormComponent implements OnInit {
       return;
     }
     LoadingService.open();
-    this.veiculoService.getVeiculo(id).subscribe(retorno => {
+    this.carService.getCar(id).subscribe(retorno => {
       if(retorno != null){
         this.car = retorno;
       } else {
@@ -69,7 +69,7 @@ export class VeiculoFormComponent implements OnInit {
 
   save(): void {
     LoadingService.open();
-    this.veiculoService.salvarVeiculo(this.car).subscribe(retorno => {
+    this.carService.saveCar(this.car).subscribe(retorno => {
       if(retorno != null){
         this.alertaService.salvoComSucesso("Veículo");
       } else {

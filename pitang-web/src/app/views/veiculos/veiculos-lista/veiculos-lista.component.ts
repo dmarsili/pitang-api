@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Alerta } from 'app/components/app-shared/alerta';
 import { LoadingService } from 'app/services/loading.service';
 import { CarDTO } from 'app/objetos';
-import { VeiculoService } from 'app/services/veiculo.service';
+import { CarService } from 'app/services/car.service';
 import { BsModalService } from 'ngx-bootstrap';
 import { Globals } from 'app/globals';
 
@@ -17,7 +17,7 @@ export class ListaComponent implements OnInit {
   cars: Array<CarDTO> = [];
   
   constructor(private modalService: BsModalService, private route: ActivatedRoute, 
-    public veiculoService: VeiculoService, private router: Router) {
+    public carService: CarService, private router: Router) {
   }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class ListaComponent implements OnInit {
 
   getCars() {
     LoadingService.open();
-    this.veiculoService.getVeiculos().subscribe(retorno => {
+    this.carService.getCars().subscribe(retorno => {
       if (retorno != null && retorno.length > 0) {
         this.cars = retorno;    
       } else {

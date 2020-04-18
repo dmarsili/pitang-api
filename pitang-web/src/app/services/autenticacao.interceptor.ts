@@ -12,7 +12,6 @@ export class AutenticacaoInterceptor implements HttpInterceptor {
 
         if (this.autenticacaoService.isLogado()) {
             const cloned = req.clone({
-                method: req.method,
                 headers: req.headers.set("Authorization", "Bearer "+this.autenticacaoService.getToken())
             });
             return next.handle(cloned);

@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { UserDTO, CarDTO } from 'app/objetos';
 import { Alerta } from 'app/components/app-shared/alerta';
 import { UserService } from 'app/services/user.service';
-import { VeiculoService } from 'app/services/veiculo.service';
 import { LoadingService } from 'app/services/loading.service';
 import { Globals } from 'app/globals';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { CarService } from 'app/services/car.service';
 
 @Component({
   selector: 'app-usuario-form',
@@ -17,9 +17,10 @@ export class UsuarioFormComponent implements OnInit {
 
   public user: UserDTO = new UserDTO();
   public alertaService: Alerta = new Alerta();
+  public cars: Array<CarDTO> = [];
 
   constructor(private route: ActivatedRoute, private router: Router, 
-    private userService: UserService) { }
+    private userService: UserService, public carService: CarService) { }
 
   bsConfig: BsDatepickerConfig =
   Object.assign(new BsDatepickerConfig(), {
@@ -31,6 +32,7 @@ export class UsuarioFormComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    this.getCars();
   }
 
   isAlteraCadastro(): boolean {
@@ -65,10 +67,36 @@ export class UsuarioFormComponent implements OnInit {
     }, () => {
       LoadingService.close();
     });
+  }
 
+  getCars() {
+    LoadingService.open();
+    this.carService.getCars().subscribe(retorno => {
+      if (retorno != null && retorno.length > 0) {
+        this.cars = retorno;    
+      } else {
+        this.alertaService.e(Globals.message_error_car_list);
+      }
+    }, error => {
+      if(error.error != null && error.error.msg != null){
+        this.alertaService.e(error.error.msg);      
+      } else{
+        this.alertaService.e(Globals.message_error_generic);
+      }
+      LoadingService.close();
+    }, () => {
+      LoadingService.close();
+    });
+  }
+
+  compareCar(car1: CarDTO, car2: CarDTO): boolean {
+    return car1 != undefined && car2 != undefined && car1.carId == car2.carId;
   }
 
   save(): void {
+
+    this.user.cars = this.cars;
+
     LoadingService.open();
     this.userService.saveUser(this.user).subscribe(retorno => {
       if(retorno != null){
@@ -109,7 +137,6 @@ export class UsuarioFormComponent implements OnInit {
       LoadingService.close();
     });
   }
-
 
   setCar(car: CarDTO) {
     let index: number = this.inArray(car, this.user.cars);

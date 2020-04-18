@@ -71,7 +71,7 @@ import { Globals } from './globals';
 import { HttpModule } from '@angular/http';
 import "angular2-navigate-with-data";
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { VeiculoService } from './services/veiculo.service';
+import { CarService } from './services/car.service';
 import { UserService } from './services/user.service';
 import { LoginComponent } from './views/login/login.component';
 import { CommonModule } from '@angular/common';
@@ -112,7 +112,7 @@ registerLocaleData(localePt, 'pt');
     ...APP_DIRECTIVES
   ],
   providers: [
-    AuthGuard, AutenticacaoService, Globals, LoadingService, VeiculoService, UserService,
+    AuthGuard, AutenticacaoService, Globals, LoadingService, CarService, UserService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     {
       provide: HTTP_INTERCEPTORS, useClass: AutenticacaoInterceptor,

@@ -33,10 +33,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/** The jwt authentication entry point. */
 	private JWTAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-	
+
 	/** The jwt user details service. */
 	private UserDetailsService jwtUserDetailsService;
-	
+
 	/** The jwt request filter. */
 	private JWTRequestFilter jwtRequestFilter;
 
@@ -97,11 +97,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeRequests()
-				.antMatchers("/users", "/users/**", "/signin", "/swagger-resources/**", "/configuration/**",
-						"/swagger-ui.html", "/webjars/**", "/v2/api-docs", "/swagger-resources")
-				.permitAll().anyRequest().authenticated().and().exceptionHandling()
-				.authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		.antMatchers("/users", "/users/**", "/signin", "/swagger-resources/**", "/configuration/**",
+				"/swagger-ui.html", "/webjars/**", "/v2/api-docs", "/swagger-resources")
+		.permitAll().anyRequest().authenticated().and().exceptionHandling()
+		.authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
@@ -117,21 +117,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
 	}
-	
+
 	@Bean
-    public FilterRegistrationBean corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("*");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        config.addExposedHeader("Authorization");
-        source.registerCorsConfiguration("/**", config);
-        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-        //jogando a ordem lá para baixo, tem que rodar do filtro do security.
-        bean.setOrder(-100000);
-        return bean;
-    }
+	public FilterRegistrationBean corsFilter() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowCredentials(true);
+		config.addAllowedOrigin("*");
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("*");
+		config.addExposedHeader("Authorization");
+		source.registerCorsConfiguration("/**", config);
+		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+		//jogando a ordem lá para baixo, tem que rodar do filtro do security.
+		bean.setOrder(-100000);
+		return bean;
+	}
 
 }

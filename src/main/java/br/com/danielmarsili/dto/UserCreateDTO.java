@@ -46,8 +46,8 @@ public class UserCreateDTO extends UserDTO {
 	 * @return the user
 	 */
 	public static User convertDTOToUser(UserCreateDTO dto) {
-		checkMissingFields(dto);
-		checkInvalidFields(dto);
+		validateMissingFields(dto);
+		validateInvalidFields(dto);
 		CarDTO.validateFieldsList(dto.getCars());
 		CarDTO.validateInvalidFieldsList(dto.getCars());
 		Mapper mapper = DozerBeanMapperBuilder.buildDefault();
@@ -61,7 +61,7 @@ public class UserCreateDTO extends UserDTO {
 	 *
 	 * @param dto the dto
 	 */
-	public static void checkMissingFields(UserCreateDTO dto) {
+	public static void validateMissingFields(UserCreateDTO dto) {
 		if (StringUtils.isEmpty(dto.getEmail()) || StringUtils.isEmpty(dto.getFirstName())
 				|| StringUtils.isEmpty(dto.getLastName()) || StringUtils.isEmpty(dto.getPassword())
 				|| StringUtils.isEmpty(dto.getLogin()) || StringUtils.isEmpty(dto.getPhone())
@@ -75,7 +75,7 @@ public class UserCreateDTO extends UserDTO {
 	 *
 	 * @param dto the dto
 	 */
-	public static void checkInvalidFields(UserCreateDTO dto) {
+	public static void validateInvalidFields(UserCreateDTO dto) {
 		if (!Validator.emailIsValid(dto.getEmail()) || !Validator.phoneIsValid(dto.getPhone())) {
 			throw new InvalidFieldsException();
 		}

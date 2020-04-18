@@ -14,14 +14,14 @@
                 <label>
                     <strong>Nome</strong>
                 </label>
-                <input uppercase type="text" id="firstName" name="firstName" maxlength="20"
+                <input required uppercase type="text" id="firstName" name="firstName" maxlength="20"
                  [(ngModel)] = "user.firstName" class="form-control text-uppercase">
             </div>
             <div class="col-sm-6">
                 <label>
                     <strong>Sobrenome</strong>
                 </label>
-                <input uppercase type="text" id="lastName" maxlength="40" name="lastName" 
+                <input required uppercase type="text" id="lastName" maxlength="40" name="lastName" 
                 class="form-control text-uppercase" [(ngModel)]="user.lastName">
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <label>
                     <strong>E-mail</strong>
                 </label>
-                <input type="text" id="email" maxlength="40" name="email" 
+                <input required type="text" id="email" maxlength="40" name="email" 
                 class="form-control" [(ngModel)]="user.email">
             </div>
             <div class="col-sm-6">
@@ -49,40 +49,41 @@
                 <label>
                     <strong>Login</strong>
                 </label>
-                <input [disabled]="isAlteraCadastro()" type="text" id="login" maxlength="40" name="login" 
+                <input required [disabled]="isAlteraCadastro()"  required type="text" id="login" maxlength="40" name="login" 
                 class="form-control" [(ngModel)]="user.login">
             </div>
             <div class="col-sm-6">
                 <label>
+                    <strong>Senha</strong>
+                </label>
+                <input required type="password" id="password" maxlength="40" name="password" 
+                class="form-control" [(ngModel)]="user.password">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-sm-6">
+                <label>
                     <strong>Telefone</strong>
                 </label>
-                <input uppercase type="text" id="phone" maxlength="40" name="phone" 
+                <input required uppercase type="text" id="phone" maxlength="40" name="phone" 
                 mask="(99) 90000-0000"
                 class="form-control text-uppercase" [(ngModel)]="user.phone">
             </div>
+            <div class="col-sm-6">
+                <div *ngIf="isAlteraCadastro() && user.cars != undefined && user.cars != null">
+                  <strong>Veículos deste usuário:</strong>
+                  <label>
+                      <span class="fa fa-car"></span>&nbsp;{{car.licensePlate}} - {{car.model}} - {{car.color}} - {{car.year}}
+                  </label>
+                </div>
+                <div *ngIf="!isAlteraCadastro()">
+                  <label><strong>Selecione um veículo:&nbsp;<small>(<a routerLink="/veiculos/formulario">Clique para cadastrar</a>)</small></strong></label>
+                  <select [compareWith]="compareCar" class="form-control" id="car" [(ngModel)]="user.cars" name="car" required #car="ngModel">
+                      <option *ngFor="let car of cars" [ngValue]="c">{{car.licensePlate}} - {{car.model}}</option>
+                  </select>
+              </div>
+              <br/>
         </div>
-        <div class="form-row margin-top-15 margin-bottom-0">
-            <div class="col-sm-12">
-              <div *ngIf="isAlteraCadastro() && user.cars != undefined && user.cars != null">
-                <strong>Veículos deste usuário:</strong>
-                <div class="col-md-12" *ngFor="let car of user.cars">
-                <label>
-                    <span class="fa fa-car"></span>&nbsp;{{car.licensePlate}} - {{car.model}} - {{car.color}} - {{car.year}}
-                </label>
-                </div>
-              </div>
-              <div *ngIf="!isAlteraCadastro()">
-                <strong>Selecione um veículos:</strong>
-                <div class="col-md-12" *ngFor="let car of user.cars">
-                <label>
-                    <input (change)="setCar(car)" type="checkbox" [checked]="checkCarSelected(this.user.cars, car)" class="checkFrota3" (ngValue)="veiculo"><span class="fa fa-car"></span>&nbsp;{{car.licensePlate}} - {{car.model}} - {{car.color}} - {{car.year}}
-                </label>
-                </div>
-              </div>
-              <br>
-            </div>
-          </div>
-
         <div class="form-row">
             <div class="col-sm-12 margin-bottom-10">
                 <button type="button" class="btn btn-success btn-lg btn-block" (click) = "save()"><i class="fa fa-save"></i>&nbsp;Salvar</button>
